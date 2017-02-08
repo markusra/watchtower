@@ -16,3 +16,13 @@ git clone git@github.com:markusra/watchtower.git
 ```
 mkdir -p /data/db
 ```
+
+4) Give the directory the right permissions:
+```
+sudo chown -R `id -un` /data/db
+```
+
+5) Start the mongodb daemon:
+```
+mongod
+```
