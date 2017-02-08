@@ -14,7 +14,7 @@ git clone git@github.com:markusra/watchtower.git
 
 3) Create the db-directory:
 ```
-mkdir -p /data/db
+sudo mkdir -p /data/db
 ```
 
 4) Give the directory the right permissions:
