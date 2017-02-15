@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Button from "./Button.js"
 
 
 class App extends Component {
@@ -11,7 +12,9 @@ class App extends Component {
           <input type="text" name="searcInput" className="searchInput" placeholder="Søk"/>
           <button>Fra</button>
           <button>Til</button>
-          <button className="searchButton">Søk</button>
+          <Button
+            buttonText = "Søk"
+            />
         </div>
       </div>
     );
