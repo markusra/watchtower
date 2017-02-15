@@ -9,7 +9,7 @@ class App extends Component {
       <div className="App">
         <div className="mainContainer">
           WatchTower
-          <input type="text" name="searcInput" className="searchInput" placeholder="Søk"/>
+          <input type="text" name="searchInput" className="searchInput" placeholder="Søk"/>
           <button>Fra</button>
           <button>Til</button>
           <Button
