@@ -12,13 +12,6 @@ class App extends Component {
         <div className="mainContainer" >
           WatchTower
           <Map/>
-          <input type="text" name="searchInput" className="searchInput" placeholder="Søk"/>
-          <button>FRA</button>
-          <button>TIL</button>
-
-          <Button
-            disabled={false}
-          >SØK</Button>
         </div>
       </div>
     );
