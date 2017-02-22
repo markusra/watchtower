@@ -1,7 +1,7 @@
-var express = require('express');
-var app = express();
-var port = 80;
-var default_port = 3000;
+const express = require('express');
+const app = express();
+const port = 80;
+let default_port = 3000;
 
 app.use(express.static('./build'));
 
