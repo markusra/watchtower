@@ -2,8 +2,6 @@ import React, {Component} from "react";
 import GoogleMap from "react-google-map";
 import GoogleMapLoader from "react-google-maps-loader";
 
-//import iconMarker from "./assets/iconMaker.svg"; //no assets found
-//import iconMarkerHover from "./assets/iconMarkerHover.svg"; //Does not exist
 import styles from "../index.css";
 
 class Map extends Component{
