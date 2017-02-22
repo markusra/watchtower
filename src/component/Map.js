@@ -2,8 +2,6 @@ import React, {Component} from "react";
 import GoogleMap from "react-google-map";
 import GoogleMapLoader from "react-google-maps-loader";
 
-import styles from "../index.css";
-
 class Map extends Component{
   render() {
     const {googleMaps} = this.props;
@@ -27,8 +25,7 @@ class Map extends Component{
           map.setMapTypeId(googleMaps.MapTypeId.ROADMAP)
         }}
       />
-  </div>
-
+    </div>
     )
   }
 }
@@ -39,7 +36,8 @@ export default GoogleMapLoader(Map, {
 })
 
 const style = {
-  height: '700px',
-  width: '900px'
+  width: '40em',
+  height: '25em',
+  border: '1px solid #414141'
 
 };
