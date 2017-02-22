@@ -15,11 +15,11 @@ export default class Container extends React.Component {
 
 const styles = {
   container: {
-    textAlign: 'center',
     padding: '10',
     borderRadius: '10',
     border: '2px solid #414141',
-    background: '#bccfbc'
+    background: '#bccfbc',
+    marginBottom: 15
   },
   containerTitle: {
     textAlign: 'left',
