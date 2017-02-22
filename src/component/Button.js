@@ -1,11 +1,23 @@
 import React, {Component} from 'react';
 import Radium from 'radium';
 
+type Props = {
+  disabled: boolean,
+  action: String
+};
+
 class Button extends React.Component {
+  handleClick = () => {
+    console.log('Button triggered!');
+  };
+
   render() {
     return (
-      <button disabled={this.props.disabled} style={[styles.base,
-        this.props.disabled && styles.disabled]}>
+      <button
+        disabled={this.props.disabled}
+        style={[styles.base,
+        this.props.disabled && styles.disabled]}
+        onClick={() => this.handleClick()}>
         {this.props.children}
       </button>
     );
@@ -18,10 +30,10 @@ const styles = {
     base: {
       width: '10em',
       textAlign: 'center',
-      padding: '10',
+      padding: '10px',
       background: '#414141',
       color: '#CCDFCB',
-      borderRadius: '10',
+      borderRadius: '10px',
       border: 0,
       cursor: 'pointer',
       userSelect: 'none',

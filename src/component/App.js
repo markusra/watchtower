@@ -13,7 +13,9 @@ class App extends Component {
           <button>FRA</button>
           <button>TIL</button>
 
-          <Button disabled={false}>SØK</Button>
+          <Button
+            disabled={false}
+          >SØK</Button>
         </div>
       </div>
     );
