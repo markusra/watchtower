@@ -3,6 +3,9 @@ const app = express();
 const port = 80;
 let default_port = 3000;
 
+var controllerLoad = require('./src/controllers/mapcontroller.js');
+var controller = new controllerLoad.test1("testconfigstuff")
+
 app.use(express.static('./build'));
 
 process.on('uncaughtException', function(error){
@@ -20,4 +23,9 @@ function start_listening(port){
   });
 }
 
+app.get('/api/test', controller.test);
+app.get('/api/tweets1', controller.tweetLocationsInTimeframe);
+
 start_listening(port);
+
+//npm run
