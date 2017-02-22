@@ -1,20 +1,29 @@
 import React, {Component} from 'react';
 
-
-const ContentContainer = () => (
-  <div className="containerDiv" style={styles.container}>
-  </div>
-);
-
-export default ContentContainer;
+export default class Container extends React.Component {
+  render() {
+    return (
+      <div>
+        <div className="containerTitle" style={styles.containerTitle}>{this.props.title}</div>
+        <div className="containerDiv" style={styles.container}>
+          {this.props.children}
+        </div>
+      </div>
+    );
+  }
+}
 
 const styles = {
   container: {
     textAlign: 'center',
     padding: '10',
     borderRadius: '10',
-    width: '70%',
-    border: '1px solid black'
+    border: '2px solid #414141',
+    background: '#bccfbc'
+  },
+  containerTitle: {
+    textAlign: 'left',
+    padding: '0 0 0.5em 0.5em',
+    fontWeight: 'bold'
   }
-
-}
+};

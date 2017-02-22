@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Button from "./Button.js";
-import googleMaps from "react-google-map";
+import Container from "./Container";
 import Map from "./Map.js";
 
 
@@ -9,8 +8,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Container>
-          WatchTower
+        <Container title="Watchtower: Heatmap">
           <Map/>
         </Container>
       </div>
