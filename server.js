@@ -3,7 +3,7 @@ var app = express();
 var port = 80;
 var default_port = 3000;
 
-app.use(express.static('web'));
+app.use(express.static('./build'));
 
 process.on('uncaughtException', function(error){
   if(error.code == "EACCES"){
