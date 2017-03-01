@@ -38,6 +38,8 @@ export default GoogleMapLoader(Map, {
 const style = {
   width: '40em',
   height: '25em',
-  border: '1px solid #414141'
+  border: '1px solid #414141',
+  margin: '0px auto',
+
 
 };
