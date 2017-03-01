@@ -15,7 +15,7 @@ const styles = {
     zIndex: 1,
     textAlign: 'center',
     top: 0,
-    paddingTop: 85,
+    paddingTop: 70,
     paddingLeft: 20,
     paddingRight: 20,
     paddingBottom: 20,
