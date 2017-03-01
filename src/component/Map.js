@@ -4,8 +4,8 @@ import Script from 'react-load-script'
 class Map extends Component{
   render() {
     return(
-    <div>
-      <div id="map_canvas" style={style}></div>
+    <div style={styles.container}>
+      <div id="map_canvas" style={styles.map}></div>
       <Script
           url="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbIZYJbik-PmH7aV2ahKmQvki6WH3Z-AQ&sensor=true&libraries=visualization"
           onCreate={this.handleScriptCreate.bind(this)}
@@ -39,8 +39,16 @@ class Map extends Component{
 
 export default Map;
 
-const style = {
-  width: '40em',
-  height: '25em',
-  border: '1px solid #414141'
+const styles = {
+  container: {
+    width: '100%',
+    height: '65%'
+  },
+  map: {
+    width: '100%',
+    height: '100%',
+    border: '1px solid #414141',
+
+  }
+
 };
