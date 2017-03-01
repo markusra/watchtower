@@ -4,8 +4,8 @@ const port = 80;
 const db = require('./db');
 let default_port = 3000;
 
-var controllerLoad = require('./src/controllers/mapcontroller.js');
-var controller = new controllerLoad.test1("testconfigstuff");
+const controllerLoad = require('./src/controllers/mapcontroller.js');
+const controller = new controllerLoad.test1("testconfigstuff");
 
 app.use(express.static('./build'));
 
@@ -35,6 +35,7 @@ function start_listening(port) {
 
 
 app.get('/api/test', controller.test);
+app.get('/api/test2', controller.test2);
 app.get('/api/tweets1', controller.tweetLocationsInTimeframe);
 
 start_listening(port);
