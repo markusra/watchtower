@@ -27,6 +27,7 @@ const styles = {
     background: '#658C98'
   },
   logo: {
-    textAlign: 'center'
+    textAlign: 'center',
+    backgroundImage: 'url("../images/icon.png")'
   }
 };
