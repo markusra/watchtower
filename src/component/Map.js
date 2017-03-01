@@ -41,5 +41,4 @@ const style = {
   border: '1px solid #414141',
   margin: '0px auto',
 
-
 };

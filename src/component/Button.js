@@ -32,7 +32,7 @@ const styles = {
       textAlign: 'center',
       padding: '0.5em',
       color: '#fff',
-      backgroundColor: '#658C98',
+      background: '#658C98',
       border: '2px solid #fff',
       cursor: 'pointer',
       userSelect: 'none',
