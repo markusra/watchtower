@@ -29,8 +29,9 @@ var test1 = function(config) {
             var lng = t.location.longitude;
             return {lat, lng};
         });
-
-        res.send(tweetsWithLoc);
+        
+        res.setHeader('Content-Type', 'application/json');
+        res.send(JSON.stringify({ data: tweetsWithLoc }));
     };
 };
 
