@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
+import Button from "./Button";
 
 export default class Header extends React.Component {
   render() {
     return (
-      <div>
-        <div className="containerDiv" style={styles.header}>
-          <img className="logoIMG" style={styles.logo} src={require("../images/icon.png")}/>
-        </div>
+      <div className="containerDiv" style={styles.header}>
+        <ul style={styles.ul}>
+          <li style={styles.li}><a href="/" ><img className="logoIMG" style={styles.logo} src={require("../images/icon.png")}/></a></li>
+          <li style={styles.li}><Button>Heatmap</Button></li>
+        </ul>
       </div>
     );
   }
@@ -14,6 +16,7 @@ export default class Header extends React.Component {
 
 const styles = {
   header: {
+    justifyContent: 'space-around',
     zIndex: 2,
     width: '100%',
     height: '3em',
@@ -28,6 +31,14 @@ const styles = {
     textAlign: 'left',
     color: '#fff',
     height: '3em'
-
+  },
+  ul: {
+    listStyleType: 'none',
+    margin: 0,
+    padding: 0,
+    overflow: 'hidden'
+  },
+  li: {
+    display: 'inline'
   }
 };
