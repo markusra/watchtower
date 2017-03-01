@@ -19,17 +19,17 @@ class Map extends Component{
   handleScriptCreate() {
     this.setState({ scriptLoaded: false })
   }
-  
+
   handleScriptError() {
     this.setState({ scriptError: true })
   }
-  
+
   handleScriptLoad() {
     this.setState({ scriptLoaded: true })
 
     window.setup_map();
 
-    fetch(`http://localhost:3000/api/tweets1?start=1&end=22`) 
+    fetch(`http://localhost:3000/api/tweets1?start=1&end=22`)
       .then(result => {
         result.json().then(d => {window.replace_locations(d.data)});
       });

@@ -28,18 +28,21 @@ module.exports = Radium(Button);
 
 const styles = {
     base: {
-      width: '10em',
+      width: '7em',
       textAlign: 'center',
-      padding: '10px',
-      background: '#414141',
-      color: '#CCDFCB',
-      borderRadius: '10px',
-      border: 0,
+      padding: '0.5em',
+      color: '#fff',
+      background: '#658C98',
+      border: '2px solid #fff',
       cursor: 'pointer',
       userSelect: 'none',
+      fontSize: '14',
 
       ':hover': {
-        background: '#1D1D1D'
+        background: '#205362'
+      },
+      ':active': {
+        background: '#205362'
       }
 
     },
