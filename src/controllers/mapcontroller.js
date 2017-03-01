@@ -1,12 +1,14 @@
 
-var mockRepo = require('./../repository/mock_maprepo.js')
+var mockRepo = require('./../repository/mock_maprepo.js');
+const tweets1 = require('../models/tweets.js');
 
 var test1 = function(config) {
-    this.mockRepo = new mockRepo.mapRepo(config)
+    this.mockRepo = new mockRepo.mapRepo(config);
     
     this.test = (req, res) => {
-        tweets = this.mockRepo.allTweets();
-        res.send(tweets);
+        tweets1.all(function(err, docs) {
+            res.send(docs);
+        })
     };
 
     this.tweetLocationsInTimeframe = (req, res) => {
