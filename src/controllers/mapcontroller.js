@@ -1,11 +1,12 @@
 const tweets = require('../models/tweets.js');
 
+
 const test1 = function(config) {
 
     this.test = (req, res) => {
         tweets.byId( (err, docs) => {
             res.send(docs);
-        }, "526127158948036609")
+        }, "829431258199519232")
     };
 
     this.test2 = (req, res) => {

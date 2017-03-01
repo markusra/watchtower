@@ -1,4 +1,5 @@
 const db = require('../../db');
+const Long = require('mongodb').Long;
 
 exports.all = function(cb) {
     const collection = db.get().collection('tweets');
@@ -9,7 +10,7 @@ exports.all = function(cb) {
 
 exports.byId = function(cb, id) {
     const collection = db.get().collection('tweets');
-    collection.find({"id": NumberLong(id)}).toArray( (err, docs) => {
+    collection.find({ id: parseInt(id) }).toArray( (err, docs) => {
             cb(err, docs)
     })
 };
