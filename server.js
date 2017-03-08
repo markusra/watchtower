@@ -9,7 +9,7 @@ const controller = new controllerLoad.test1("testconfigstuff");
 
 app.use(express.static('./build'));
 
-process.on('uncaughtException', function (error) {
+process.on('uncaughtException', (error) => {
     if (error.code == "EACCES") {
         start_listening(default_port);
     } else if (error.code == "EADDRINUSE") {
@@ -21,12 +21,12 @@ process.on('uncaughtException', function (error) {
 
 function start_listening(port) {
     // Connect to Mongo on start
-    db.connect('mongodb://localhost:27017/TMA4851', function (err) {
+    db.connect('mongodb://localhost:27017/TMA4851', (err) => {
         if (err) {
             console.log('Unable to connect to Mongo.');
             process.exit(1)
         } else {
-            app.listen(port, function () {
+            app.listen(port, () => {
                 console.log("listening on port " + port);
             });
         }

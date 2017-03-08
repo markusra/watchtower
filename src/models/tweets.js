@@ -1,5 +1,4 @@
 const db = require('../../db');
-const Long = require('mongodb').Long;
 
 exports.all = function(cb) {
     const collection = db.get().collection('tweets');
