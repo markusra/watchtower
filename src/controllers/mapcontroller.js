@@ -32,7 +32,9 @@ const test1 = function(config) {
                 return {lat, lng};
             });
 
-            res.send(tweetsWithLoc);
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify({ data: tweetsWithLoc }));
+            // res.send(tweetsWithLoc);
 
         }, start, end);
     };

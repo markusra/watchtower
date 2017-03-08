@@ -3,11 +3,8 @@ import React, {Component} from 'react';
 export default class Container extends React.Component {
   render() {
     return (
-      <div>
-        <div className="containerTitle" style={styles.containerTitle}>{this.props.title}</div>
-        <div className="containerDiv" style={styles.container}>
-          {this.props.children}
-        </div>
+      <div className="containerDiv" style={styles.container}>
+        {this.props.children}
       </div>
     );
   }
@@ -15,11 +12,19 @@ export default class Container extends React.Component {
 
 const styles = {
   container: {
+    zIndex: 1,
     textAlign: 'center',
-    padding: '10',
+    top: 0,
+    paddingTop: 70,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingBottom: 20,
+    position: 'fixed',
+    width: '60%',
+    height: '100%',
     borderRadius: '10',
     border: '2px solid #414141',
-    background: '#bccfbc'
+    background: '#fff'
   },
   containerTitle: {
     textAlign: 'left',
