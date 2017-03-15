@@ -12,12 +12,18 @@ class App extends Component {
         <Header>
           Test
         </Header>
-        <Container title="Watchtower: Heatmap">
+          <Container title="Watchtower: Heatmap">
           <Map/>
+          <div id="slider"/>
         </Container>
       </div>
     );
   }
+
+  componentDidMount(){
+      window.renderSlider();
+  }
+
 }
 
 export default App;

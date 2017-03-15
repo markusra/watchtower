@@ -1,41 +1,57 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="jQRangeSlider-5.7.2/css/iThing.css">
     <title>WatchTower</title>
-  </head>
-  <body>
-  
-  <div id="root"></div>
 
-  <script type="text/javascript">
+</head>
+<body>
+
+<div id="root"></div>
+
+<script type="text/javascript">
 
     var location_array;
 
-    var setup_map = function() {
-      var mapOptions = {
-        zoom: 5,
-        center: new google.maps.LatLng(65, 11),
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      }
-      var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+    var setup_map = function () {
+        var mapOptions = {
+            zoom: 5,
+            center: new google.maps.LatLng(65, 11),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 
-      location_array = new google.maps.MVCArray();
-      heatmap = new google.maps.visualization.HeatmapLayer({
-        data: location_array
-      });
-      heatmap.setOptions({radius: heatmap.get('20')});
-      heatmap.setMap(map);
+        location_array = new google.maps.MVCArray();
+        heatmap = new google.maps.visualization.HeatmapLayer({
+            data: location_array
+        });
+        heatmap.setOptions({radius: heatmap.get('20')});
+        heatmap.setMap(map);
     }
 
-    var replace_locations = function(locations) {
-      location_array.clear();
-      var heatMapdata = locations.map( elem => {return new google.maps.LatLng(elem.lat, elem.lng)} )
-      heatMapdata.forEach( elem => {location_array.push(elem)});
+    var replace_locations = function (locations) {
+        location_array.clear();
+        var heatMapdata = locations.map(elem => {
+            return new google.maps.LatLng(elem.lat, elem.lng)
+        })
+        heatMapdata.forEach(elem => {
+            location_array.push(elem)
+        });
     }
-  </script>
+</script>
 
-  </body>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+<script src="jQRangeSlider-5.7.2/jQDateRangeSlider-min.js"></script>
+<script>
+
+    var renderSlider = function() {
+        $("#slider").dateRangeSlider();
+    }
+</script>
+
+</body>
 </html>
