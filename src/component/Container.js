@@ -1,14 +1,4 @@
-import React, {Component} from 'react';
-
-export default class Container extends React.Component {
-  render() {
-    return (
-      <div className="containerDiv" style={styles.container}>
-        {this.props.children}
-      </div>
-    );
-  }
-}
+import React from 'react';
 
 const styles = {
   container: {
@@ -22,7 +12,7 @@ const styles = {
     position: 'fixed',
     width: '60%',
     height: '100%',
-    borderRadius: '10',
+    borderRadius: '10px',
     border: '2px solid #414141',
     background: '#fff'
   },
@@ -32,3 +22,13 @@ const styles = {
     fontWeight: 'bold'
   }
 };
+
+export default class Container extends React.Component {
+  render() {
+    return (
+      <div className="containerDiv" style={styles.container}>
+        {this.props.children}
+      </div>
+    );
+  }
+}

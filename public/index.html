@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="jQRangeSlider-5.7.2/css/iThing.css">
+    <link rel="stylesheet" type="text/css" href="jQRangeSlider-5.7.2/css/classic.css">
     <title>WatchTower</title>
 
 </head>
@@ -47,9 +47,14 @@
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
 <script src="jQRangeSlider-5.7.2/jQDateRangeSlider-min.js"></script>
 <script>
-
     var renderSlider = function() {
-        $("#slider").dateRangeSlider();
+      $("#slider").dateRangeSlider({
+        bounds: {min: new Date(2015, 0, 1), max: new Date()}
+      });
+
+      $("#slider").bind("valuesChanged", function(e, data){
+        console.log("Values just changed. min: " + data.values.min + " max: " + data.values.max);
+      });
     }
 </script>
 

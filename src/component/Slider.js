@@ -1,9 +1,16 @@
 import React, {Component} from "react";
 
-class Slider extends Component{
+const styles = {
+  slider: {
+    marginTop: 40,
+    fontSize: 12
+  }
+};
+
+export default class Slider extends Component{
   render() {
     return(
-      <div id="slider"></div>
+      <div id="slider" style={styles.slider}></div>
     )
   }
 
@@ -13,5 +20,4 @@ class Slider extends Component{
   }
 }
 
-export default Slider;
 

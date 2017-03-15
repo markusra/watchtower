@@ -3,6 +3,7 @@ import './App.css';
 import Container from "./Container";
 import Map from "./Map";
 import Header from "./Header";
+import Slider from "./Slider";
 
 
 class App extends Component {
@@ -13,15 +14,11 @@ class App extends Component {
           Test
         </Header>
           <Container title="Watchtower: Heatmap">
-          <Map/>
-          <div id="slider"/>
+            <Map/>
+            <Slider/>
         </Container>
       </div>
     );
-  }
-
-  componentDidMount(){
-      window.renderSlider();
   }
 
 }
