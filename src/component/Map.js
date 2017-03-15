@@ -1,6 +1,19 @@
 import React, {Component} from "react";
 import Script from 'react-load-script'
 
+const styles = {
+  container: {
+    width: '100%',
+    height: '65%'
+  },
+  map: {
+    width: '100%',
+    height: '100%',
+    border: '1px solid #414141',
+
+  }
+};
+
 class Map extends Component{
   render() {
     return(
@@ -51,16 +64,4 @@ class Map extends Component{
 
 export default Map;
 
-const styles = {
-  container: {
-    width: '100%',
-    height: '65%'
-  },
-  map: {
-    width: '100%',
-    height: '100%',
-    border: '1px solid #414141',
 
-  }
-
-};
