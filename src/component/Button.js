@@ -1,9 +1,34 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Radium from 'radium';
 
 type Props = {
-  disabled: boolean,
-  action: String
+  disabled: boolean
+};
+
+const styles = {
+  base: {
+    width: '7em',
+    textAlign: 'center',
+    padding: '0.5em',
+    color: '#fff',
+    background: '#658C98',
+    border: '2px solid #fff',
+    cursor: 'pointer',
+    userSelect: 'none',
+    fontSize: '14px',
+
+    ':hover': {
+      background: '#205362'
+    },
+    ':active': {
+      background: '#205362'
+    }
+
+  },
+  disabled: {
+    opacity: .4,
+    cursor: "not-allowed"
+  }
 };
 
 class Button extends React.Component {
@@ -26,28 +51,3 @@ class Button extends React.Component {
 
 module.exports = Radium(Button);
 
-const styles = {
-    base: {
-      width: '7em',
-      textAlign: 'center',
-      padding: '0.5em',
-      color: '#fff',
-      background: '#658C98',
-      border: '2px solid #fff',
-      cursor: 'pointer',
-      userSelect: 'none',
-      fontSize: '14',
-
-      ':hover': {
-        background: '#205362'
-      },
-      ':active': {
-        background: '#205362'
-      }
-
-    },
-    disabled: {
-      opacity: .4,
-      cursor: "not-allowed"
-    }
-};

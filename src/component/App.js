@@ -3,6 +3,7 @@ import './App.css';
 import Container from "./Container";
 import Map from "./Map";
 import Header from "./Header";
+import Slider from "./Slider";
 
 
 class App extends Component {
@@ -12,12 +13,14 @@ class App extends Component {
         <Header>
           Test
         </Header>
-        <Container title="Watchtower: Heatmap">
-          <Map/>
+          <Container title="Watchtower: Heatmap">
+            <Map/>
+            <Slider/>
         </Container>
       </div>
     );
   }
+
 }
 
 export default App;

@@ -1,20 +1,5 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Button from "./Button";
-
-export default class Header extends React.Component {
-  render() {
-    return (
-      <div style={styles.header}>
-        <div style={styles.menuContent}>
-          <ul>
-            <li><a href="/" ><img className="logoIMG" style={styles.logo} src={require("../images/icon.png")}/></a></li>
-            <li style={styles.buttons}><Button>Heatmap</Button></li>
-          </ul>
-        </div>
-      </div>
-    );
-  }
-}
 
 const styles = {
   header: {
@@ -44,3 +29,18 @@ const styles = {
   }
 
 };
+
+export default class Header extends React.Component {
+  render() {
+    return (
+      <div style={styles.header}>
+        <div style={styles.menuContent}>
+          <ul>
+            <li><a href="/" ><img alt="Logo" className="logoIMG" style={styles.logo} src={require("../images/icon.png")}/></a></li>
+            <li style={styles.buttons}><Button>Heatmap</Button></li>
+          </ul>
+        </div>
+      </div>
+    );
+  }
+}
