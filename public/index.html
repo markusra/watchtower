@@ -18,9 +18,92 @@
 
     var setup_map = function () {
         var mapOptions = {
-            zoom: 5,
-            center: new google.maps.LatLng(65, 11),
-            mapTypeId: google.maps.MapTypeId.ROADMAP
+            zoom: 4,
+            center: new google.maps.LatLng(65, 14),
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            disableDefaultUI: true,
+            zoomControl: true,
+            scrollwheel: false,
+            styles: [
+              {
+                "featureType": "administrative",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                  {
+                    "color": "#444444"
+                  }
+                ]
+              },
+              {
+                "featureType": "landscape",
+                "elementType": "all",
+                "stylers": [
+                  {
+                    "color": "#f2f2f2"
+                  }
+                ]
+              },
+              {
+                "featureType": "poi",
+                "elementType": "all",
+                "stylers": [
+                  {
+                    "visibility": "off"
+                  }
+                ]
+              },
+              {
+                "featureType": "road",
+                "elementType": "all",
+                "stylers": [
+                  {
+                    "saturation": -100
+                  },
+                  {
+                    "lightness": 45
+                  }
+                ]
+              },
+              {
+                "featureType": "road.highway",
+                "elementType": "all",
+                "stylers": [
+                  {
+                    "visibility": "simplified"
+                  }
+                ]
+              },
+              {
+                "featureType": "road.arterial",
+                "elementType": "labels.icon",
+                "stylers": [
+                  {
+                    "visibility": "off"
+                  }
+                ]
+              },
+              {
+                "featureType": "transit",
+                "elementType": "all",
+                "stylers": [
+                  {
+                    "visibility": "off"
+                  }
+                ]
+              },
+              {
+                "featureType": "water",
+                "elementType": "all",
+                "stylers": [
+                  {
+                    "color": "#658C98"
+                  },
+                  {
+                    "visibility": "on"
+                  }
+                ]
+              }
+            ]
         }
         var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 
@@ -55,7 +138,7 @@
     var renderSlider = function() {
       $("#slider").dateRangeSlider({
         bounds: {min: new Date(2011, 2, 22), max: new Date()},
-        defaultValues: {min: new Date(2013, 0, 1), max: new Date(2015, 0, 1)}
+        defaultValues: {min: new Date(2016, 0, 1), max: new Date(2017, 0, 1)}
       });
 
       $("#slider").bind("valuesChanged", function(e, data){
