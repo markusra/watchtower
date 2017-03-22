@@ -42,7 +42,19 @@ class Map extends Component{
 
     window.setup_map();
 
-    fetch(`http://localhost:3000/api/tweets1?start=1&end=22`)
+    var params = {
+        start: 'Wed Feb 14 03:46:04 +0000 2017',
+        end: 'Wed Feb 15 04:23:42 +0000 2017'
+    };
+
+    var esc = encodeURIComponent;
+    var query = Object.keys(params)
+      .map(k => esc(k) + '=' + esc(params[k]))
+      .join('&');
+
+    var url = "http://localhost:3000/api/tweets1?" + query;
+
+    fetch(url)
       .then(result => {
         result.json().then(d => {window.replace_locations(d.data)});
       });

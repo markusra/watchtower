@@ -5,16 +5,16 @@ const styles = {
     zIndex: 1,
     textAlign: 'center',
     top: 0,
-    paddingTop: 70,
+    paddingTop: 150,
     paddingLeft: 20,
     paddingRight: 20,
     paddingBottom: 20,
-    position: 'fixed',
     width: '60%',
     height: '100%',
     borderRadius: '10px',
     border: '2px solid #414141',
-    background: '#fff'
+    background: '#fff',
+    margin: '0px auto'
   },
   containerTitle: {
     textAlign: 'left',
