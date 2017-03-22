@@ -15,6 +15,13 @@ const test1 = function(config) {
         }, "Wed Feb 15 03:46:04 +0000 2017", "Wed Feb 15 04:23:42 +0000 2017")
     };
 
+    this.test3 = (req, res) => {
+        tweets.byWord( (err, docs) => {
+            res.send(docs)
+        }, "brann")
+    };
+
+
     this.tweetLocationsInTimeframe = (req, res) => {
         const start = req.query.start;
         const end = req.query.end;

@@ -7,6 +7,15 @@ exports.all = function(cb) {
     })
 };
 
+exports.byWord = function (cb, word) {
+    console.log(word);
+    const collection = db.get().collection('tweets');
+    const regex = new RegExp("(^" + word + " | " + word + " | " + word + "\\.*$)", "i");
+    collection.find({text: regex}).toArray( (err, docs) => {
+        cb(err, docs)
+    });
+};
+
 exports.byId = function(cb, id) {
     const collection = db.get().collection('tweets');
     collection.find({ id: parseInt(id) }).toArray( (err, docs) => {

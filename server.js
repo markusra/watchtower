@@ -36,6 +36,7 @@ function start_listening(port) {
 
 app.get('/api/test', controller.test);
 app.get('/api/test2', controller.test2);
+app.get('/api/test3', controller.test3);
 app.get('/api/tweets1', controller.tweetLocationsInTimeframe);
 
 start_listening(port);
