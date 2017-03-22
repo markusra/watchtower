@@ -12,7 +12,7 @@ const styles = {
     width: '60%',
     height: '100%',
     borderRadius: '10px',
-    border: '2px solid #414141',
+    border: '2px solid #205362',
     background: '#fff',
     margin: '0px auto'
   },

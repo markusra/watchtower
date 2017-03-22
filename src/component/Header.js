@@ -10,8 +10,9 @@ const styles = {
     top: 0,
     left: 0,
     position: 'fixed',
-    borderBottom: '2px solid #414141',
-    background: '#658C98'
+    borderBottom: '2px solid #205362',
+    background: '#658C98',
+    minWidth: '500px'
   },
   logo: {
     textAlign: 'left',
