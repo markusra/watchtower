@@ -21,6 +21,13 @@ const test1 = function(config) {
         }, "brann")
     };
 
+    this.tweetsByWord= (req, res) => {
+        const word = req.query.word;
+        console.log(word);
+        tweets.byWord( (err, docs) => {
+            res.send(docs)
+        }, word)
+    };
 
     this.tweetLocationsInTimeframe = (req, res) => {
         const start = req.query.start;
