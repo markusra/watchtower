@@ -59,6 +59,21 @@ class Map extends Component{
         result.json().then(d => {window.replace_locations(d.data)});
       });
 
+    var styles = {
+      default: null,
+      hide: [
+        {
+          featureType: 'poi.business',
+          stylers: [{visibility: 'off'}]
+        },
+        {
+          featureType: 'transit',
+          elementType: 'labels.icon',
+          stylers: [{visibility: 'off'}]
+        }
+      ]
+    };
+
   }
 }
 
