@@ -28,7 +28,7 @@
         heatmap = new google.maps.visualization.HeatmapLayer({
             data: location_array
         });
-        heatmap.setOptions({radius: heatmap.get('20')});
+        heatmap.setOptions({radius: 1, dissipating: false});
         heatmap.setMap(map);
     }
 
@@ -47,6 +47,11 @@
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
 <script src="jQRangeSlider-5.7.2/jQDateRangeSlider-min.js"></script>
 <script>
+
+    var minVal;
+    var maxVal;
+    var word = "";
+
     var renderSlider = function() {
       $("#slider").dateRangeSlider({
         bounds: {min: new Date(2011, 2, 22), max: new Date()},
@@ -58,23 +63,34 @@
 
         var params = {
           start: data.values.min,
-          end: data.values.max
+          end: data.values.max,
+          word: word
         };
+
+        minVal = data.values.min;
+        maxVal = data.values.max;
 
         var esc = encodeURIComponent;
         var query = Object.keys(params)
           .map(k => esc(k) + '=' + esc(params[k]))
           .join('&');
 
-        var url = "http://localhost:3000/api/tweets1?" + query;
+        var url = "http://localhost:3000/api/tweets/byword?" + query;
 
-        $.ajax({
-          url: url,
-          success: function (result) {
-            console.log(result);
-              window.replace_locations(result.data)
-          },
-        });
+          fetch(url)
+              .then(result => {
+                  result.json().then(d => {
+                      window.replace_locations(d.data)
+                  });
+              });
+
+        //$.ajax({
+        //  url: url,
+        //  success: function (result) {
+        //    console.log(result);
+        //      window.replace_locations(result.data)
+        //  },
+        //});
 
       });
     }

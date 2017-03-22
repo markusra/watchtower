@@ -1,32 +1,41 @@
 const tweets = require('../models/tweets.js');
 
 
-const test1 = function(config) {
+const test1 = function (config) {
 
     this.test = (req, res) => {
-        tweets.byId( (err, docs) => {
+        tweets.byId((err, docs) => {
             res.send(docs);
         }, "829431258199519232")
     };
 
     this.test2 = (req, res) => {
-        tweets.inTimeFrame( (err, docs) => {
+        tweets.inTimeFrame((err, docs) => {
             res.send(docs)
         }, "Wed Feb 15 03:46:04 +0000 2017", "Wed Feb 15 04:23:42 +0000 2017")
     };
 
     this.test3 = (req, res) => {
-        tweets.byWord( (err, docs) => {
+        tweets.byWord((err, docs) => {
             res.send(docs)
-        }, "brann")
+        }, "brann", "Wed Feb 15 03:46:04 +0000 2016", "Wed Feb 18 04:23:42 +0000 2016")
     };
 
-    this.tweetsByWord= (req, res) => {
+    this.tweetsByWord = (req, res) => {
         const word = req.query.word;
+        const start = req.query.start;
+        const end = req.query.end;
         console.log(word);
-        tweets.byWord( (err, docs) => {
-            res.send(docs)
-        }, word)
+        tweets.byWord((err, docs) => {
+
+            let tweetsWithLoc = docs.map(t => {
+                const lat = t.location.latitude;
+                const lng = t.location.longitude;
+                return {lat, lng};
+            });
+            res.send(JSON.stringify({data: tweetsWithLoc}));
+            //res.send(docs)
+        }, word, start, end)
     };
 
     this.tweetLocationsInTimeframe = (req, res) => {
@@ -39,15 +48,15 @@ const test1 = function(config) {
         }
 
         // check if start and end are actual dates
-        tweets.inTimeFrame( (err, docs) => {
-            let tweetsWithLoc = docs.map( t => {
+        tweets.inTimeFrame((err, docs) => {
+            let tweetsWithLoc = docs.map(t => {
                 const lat = t.location.latitude;
                 const lng = t.location.longitude;
                 return {lat, lng};
             });
 
             res.setHeader('Content-Type', 'application/json');
-            res.send(JSON.stringify({ data: tweetsWithLoc }));
+            res.send(JSON.stringify({data: tweetsWithLoc}));
             // res.send(tweetsWithLoc);
 
         }, start, end);

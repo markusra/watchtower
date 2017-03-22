@@ -1,9 +1,9 @@
 import React from 'react';
 import Radium from 'radium';
 
-type Props = {
-  disabled: boolean
-};
+//type Props = {
+//  disabled: boolean
+//};
 
 const styles = {
   base: {
@@ -33,7 +33,7 @@ const styles = {
 
 class Button extends React.Component {
   handleClick = () => {
-    console.log('Button triggered!');
+    this.props.onclick();
   };
 
   render() {
