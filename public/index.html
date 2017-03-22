@@ -55,6 +55,27 @@
 
       $("#slider").bind("valuesChanged", function(e, data){
         console.log("Values just changed. min: " + data.values.min + " max: " + data.values.max);
+
+        var params = {
+          start: data.values.min,
+          end: data.values.max
+        };f
+
+        var esc = encodeURIComponent;
+        var query = Object.keys(params)
+          .map(k => esc(k) + '=' + esc(params[k]))
+          .join('&');
+
+        var url = "http://localhost:3000/api/tweets1?" + query;
+
+        $.ajax({
+          url: url,
+          success: function (result) {
+            console.log(result);
+              window.replace_locations(result.data)
+          },
+        });
+
       });
     }
 </script>
