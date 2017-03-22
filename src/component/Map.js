@@ -43,8 +43,8 @@ class Map extends Component{
     window.setup_map();
 
     var params = {
-        start: 'Wed Feb 14 03:46:04 +0000 2017',
-        end: 'Wed Feb 15 04:23:42 +0000 2017'
+        start: new Date(2016, 0, 1),
+        end: new Date(2017, 0, 1)
     };
 
     var esc = encodeURIComponent;
