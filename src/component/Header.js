@@ -20,7 +20,7 @@ const styles = {
     height: '3em'
   },
   menuContent: {
-    width: '65%',
+    width: '56%',
     margin: '0 auto'
   },
   buttons: {
