@@ -1,12 +1,52 @@
 import React from 'react';
 import Button from "./Button";
 
+const styles = {
+  container: {
+    display: '-webkit-flex',
+    display: 'flex',
+    marginTop: 20,
+    marginBottom: 10,
+    width: '99.8%',
+    textAlign: 'left'
+  },
+  inputDiv: {
+    flex: 1
+  },
+  selectDiv: {
+    flex: 1,
+    marginRight: 10
+  },
+  selectComp: {
+    width: '100%',
+    height: '2.5em',
+    background: '#658C98',
+    border: '2px solid #205362',
+    fontSize: '14px',
+    color: 'white',
+    textAlignLast: 'center',
+  },
+  buttonDiv: {
+    flex: 1
+  },
+  inputField: {
+    width: '100%',
+    fontSize: '14px',
+    border: '2px solid #205362',
+    padding: '0.5em',
+    textAlign: 'center',
+    color: '#205362'
+  }
+};
+
+
 export default class Search extends React.Component {
 
   constructor(props) {
     super(props);
     this.numberOnChange = this.numberOnChange.bind(this);
     this.multiplierOnChange = this.multiplierOnChange.bind(this);
+    this.state = {buttonDisabled: false};
   }
 
   componentDidMount(){
@@ -24,6 +64,10 @@ export default class Search extends React.Component {
   };
 
   handleSubmitClick = () => {
+    console.log("Graph start...");
+    document.getElementById('loading').style.display = 'inline';
+    this.setState({buttonDisabled: true});
+
     const params = {
       word: window.word,
       start: window.minVal,
@@ -45,6 +89,9 @@ export default class Search extends React.Component {
       .then(result => {
         result.json().then(d => {
           window.show_graphs(d)
+          console.log("Graph finish!");
+          document.getElementById('loading').style.display = 'none';
+          this.setState({buttonDisabled: false});
         });
       });
   };
@@ -81,47 +128,9 @@ export default class Search extends React.Component {
         </div>
 
         <div style={styles.buttonDiv}>
-          <Button kind="search" style={styles.button} onclick={this.handleSubmitClick}>Create Graphs</Button>
+          <Button disabled={this.state.buttonDisabled} kind="search" style={styles.button} onclick={this.handleSubmitClick}>Create Graphs</Button>
         </div>
       </div>
     );
   }
 }
-
-const styles = {
-  container: {
-    display: '-webkit-flex',
-    display: 'flex',
-    marginTop: 20,
-    marginBottom: 10,
-    width: '99.8%',
-    textAlign: 'left'
-  },
-  inputDiv: {
-    flex: 1
-  },
-  selectDiv: {
-    flex: 1,
-    marginRight: 10
-  },
-  selectComp: {
-    width: '100%',
-    height: '2.5em',
-    background: '#658C98',
-    border: '2px solid #205362',
-    fontSize: '14px',
-    color: 'white',
-    borderRadius: 0
-  },
-  buttonDiv: {
-    flex: 1
-  },
-  inputField: {
-    width: '100%',
-    fontSize: '14px',
-    border: '2px solid #205362',
-    padding: '0.5em',
-    textAlign: 'center',
-    color: '#205362'
-  }
-};
