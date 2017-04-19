@@ -40,7 +40,7 @@ export default class Header extends React.Component {
                 <div style={styles.menuContent}>
                     <ul>
                         <li><a href="/"><img alt="Logo" className="logoIMG" style={styles.logo} src={require("../images/icon.png")}/></a></li>
-                        <li style={styles.buttons}><Button>Heatmap</Button></li>
+                        {/*<li style={styles.buttons}><Button>Heatmap</Button></li>*/}
                     </ul>
                 </div>
             </div>
