@@ -12,9 +12,11 @@
 
 <div id="root"></div>
 
+<script src="Chart.min.js"></script>
+
 <script type="text/javascript">
 
-    var location_array;
+    var location_array, chart;
 
     var setup_map = function () {
         var mapOptions = {
@@ -124,6 +126,73 @@
             location_array.push(elem)
         });
     }
+
+    var show_graphs = function(num_tweets_map) {
+      chart.destroy();
+
+      var ctx = document.getElementById("myChart");
+      labels = [];
+      data = [];
+      num_tweets_map.map(function(obj) {
+        labels.push("From: " + obj[0] + ", To: " + obj[1]); // from start to end
+        data.push(obj[2]); // size
+      });
+
+      chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: '# of tweets',
+            data: data,
+            borderWidth: 1,
+            backgroundColor: '#658C98'
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero:true
+              }
+            }],
+            xAxes: [{
+              display: false
+            }]
+          }
+        }
+      });
+    }
+
+    var show_empty_graph_canvas = function() {
+      var ctx = document.getElementById("myChart");
+      labels = [];
+      data = [];
+
+      chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: '# of tweets',
+            data: data,
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero:true
+              }
+            }],
+            xAxes: [{
+              display: false
+            }]
+          }
+        }
+      });
+    }
 </script>
 
 <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
@@ -131,14 +200,16 @@
 <script src="jQRangeSlider-5.7.2/jQDateRangeSlider-min.js"></script>
 <script>
 
-    var minVal;
-    var maxVal;
+    var minVal = new Date(2016, 0, 1);
+    var maxVal = new Date(2016, 2, 1);
     var word = "";
+    var number = 1;
+    var multiplier = 24;
 
     var renderSlider = function() {
       $("#slider").dateRangeSlider({
-        bounds: {min: new Date(2011, 2, 22), max: new Date()},
-        defaultValues: {min: new Date(2016, 0, 1), max: new Date(2017, 0, 1)}
+        bounds: {min: new Date(2015, 0, 1), max: new Date(2017, 1, 1)},
+        defaultValues: {min: new Date(2016, 0, 1), max: new Date(2016, 2, 1)}
       });
 
       $("#slider").bind("valuesChanged", function(e, data){

@@ -6,7 +6,7 @@ const styles = {
     display: '-webkit-flex',
     display: 'flex',
     marginBottom: 10,
-    width: '100.5%',
+    width: '99.8%',
     textAlign: 'left'
   },
   inputDiv: {

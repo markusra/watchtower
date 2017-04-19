@@ -3,8 +3,8 @@ import Script from 'react-load-script'
 
 const styles = {
   container: {
-    width: '100%',
-    height: '65%'
+    width: '99.3%',
+    height: '25em'
   },
   map: {
     width: '100%',

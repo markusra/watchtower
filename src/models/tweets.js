@@ -8,7 +8,6 @@ exports.all = function (cb) {
 };
 
 exports.byWord = function (cb, word, start, end) {
-    console.log(word);
     const collection = db.get().collection('tweets');
     const regex = new RegExp("(^" + word + " | " + word + " | " + word + "\\.*$)", "i");
     if (word != "") {
