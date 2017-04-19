@@ -73,8 +73,10 @@ export default class Search extends React.Component {
         </div>
         <div style={styles.selectDiv}>
           <select onChange={this.multiplierOnChange} style={styles.selectComp}>
-            <option value="24">Days</option>
             <option value="1">Hours</option>
+            <option value="24" selected="selected">Days</option>
+            <option value="168">Week</option>
+            <option value="672">Month</option>
           </select>
         </div>
 
