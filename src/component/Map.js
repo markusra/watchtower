@@ -9,8 +9,7 @@ const styles = {
   map: {
     width: '100%',
     height: '100%',
-    border: '1px solid #414141',
-
+    border: '2px solid #205362',
   }
 };
 

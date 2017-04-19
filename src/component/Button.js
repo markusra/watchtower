@@ -1,9 +1,9 @@
 import React from 'react';
 import Radium from 'radium';
 
-type Props = {
-  disabled: boolean
-};
+//type Props = {
+//  disabled: boolean
+//};
 
 const styles = {
   base: {
@@ -28,21 +28,28 @@ const styles = {
   disabled: {
     opacity: .4,
     cursor: "not-allowed"
-  }
+  },
+  search: {
+    minWidth: '10em',
+    width: '100%',
+    border: '2px solid #205362'
+  },
 };
 
 class Button extends React.Component {
   handleClick = () => {
-    console.log('Button triggered!');
+    this.props.onclick();
   };
 
   render() {
     return (
       <button
+        kind={this.props.kind}
         disabled={this.props.disabled}
-        style={[styles.base,
+        style={[styles.base, styles[this.props.kind],
         this.props.disabled && styles.disabled]}
-        onClick={() => this.handleClick()}>
+        onClick={() => this.handleClick()}
+      >
         {this.props.children}
       </button>
     );
