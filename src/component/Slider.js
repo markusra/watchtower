@@ -3,6 +3,8 @@ import React, {Component} from "react";
 const styles = {
   slider: {
     marginTop: 40,
+    marginLeft: 10,
+    marginRight: 10,
     fontSize: 12
   }
 };

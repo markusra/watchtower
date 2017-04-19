@@ -9,8 +9,7 @@ const styles = {
   map: {
     width: '100%',
     height: '100%',
-    border: '1px solid #414141',
-
+    border: '2px solid #205362',
   }
 };
 
@@ -43,8 +42,8 @@ class Map extends Component{
     window.setup_map();
 
     var params = {
-        start: 'Wed Feb 14 03:46:04 +0000 2017',
-        end: 'Wed Feb 15 04:23:42 +0000 2017'
+        start: new Date(2016, 0, 1),
+        end: new Date(2017, 0, 1)
     };
 
     var esc = encodeURIComponent;
@@ -58,6 +57,21 @@ class Map extends Component{
       .then(result => {
         result.json().then(d => {window.replace_locations(d.data)});
       });
+
+    var styles = {
+      default: null,
+      hide: [
+        {
+          featureType: 'poi.business',
+          stylers: [{visibility: 'off'}]
+        },
+        {
+          featureType: 'transit',
+          elementType: 'labels.icon',
+          stylers: [{visibility: 'off'}]
+        }
+      ]
+    };
 
   }
 }

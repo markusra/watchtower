@@ -18,9 +18,92 @@
 
     var setup_map = function () {
         var mapOptions = {
-            zoom: 5,
-            center: new google.maps.LatLng(65, 11),
-            mapTypeId: google.maps.MapTypeId.ROADMAP
+            zoom: 4,
+            center: new google.maps.LatLng(65, 14),
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            disableDefaultUI: true,
+            zoomControl: true,
+            scrollwheel: false,
+            styles: [
+              {
+                "featureType": "administrative",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                  {
+                    "color": "#444444"
+                  }
+                ]
+              },
+              {
+                "featureType": "landscape",
+                "elementType": "all",
+                "stylers": [
+                  {
+                    "color": "#f2f2f2"
+                  }
+                ]
+              },
+              {
+                "featureType": "poi",
+                "elementType": "all",
+                "stylers": [
+                  {
+                    "visibility": "off"
+                  }
+                ]
+              },
+              {
+                "featureType": "road",
+                "elementType": "all",
+                "stylers": [
+                  {
+                    "saturation": -100
+                  },
+                  {
+                    "lightness": 45
+                  }
+                ]
+              },
+              {
+                "featureType": "road.highway",
+                "elementType": "all",
+                "stylers": [
+                  {
+                    "visibility": "simplified"
+                  }
+                ]
+              },
+              {
+                "featureType": "road.arterial",
+                "elementType": "labels.icon",
+                "stylers": [
+                  {
+                    "visibility": "off"
+                  }
+                ]
+              },
+              {
+                "featureType": "transit",
+                "elementType": "all",
+                "stylers": [
+                  {
+                    "visibility": "off"
+                  }
+                ]
+              },
+              {
+                "featureType": "water",
+                "elementType": "all",
+                "stylers": [
+                  {
+                    "color": "#658C98"
+                  },
+                  {
+                    "visibility": "on"
+                  }
+                ]
+              }
+            ]
         }
         var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 
@@ -28,7 +111,7 @@
         heatmap = new google.maps.visualization.HeatmapLayer({
             data: location_array
         });
-        heatmap.setOptions({radius: heatmap.get('20')});
+        heatmap.setOptions({radius: 1, dissipating: false});
         heatmap.setMap(map);
     }
 
@@ -47,10 +130,15 @@
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
 <script src="jQRangeSlider-5.7.2/jQDateRangeSlider-min.js"></script>
 <script>
+
+    var minVal;
+    var maxVal;
+    var word = "";
+
     var renderSlider = function() {
       $("#slider").dateRangeSlider({
         bounds: {min: new Date(2011, 2, 22), max: new Date()},
-        defaultValues: {min: new Date(2013, 0, 1), max: new Date(2015, 0, 1)}
+        defaultValues: {min: new Date(2016, 0, 1), max: new Date(2017, 0, 1)}
       });
 
       $("#slider").bind("valuesChanged", function(e, data){
@@ -58,23 +146,34 @@
 
         var params = {
           start: data.values.min,
-          end: data.values.max
+          end: data.values.max,
+          word: word
         };
+
+        minVal = data.values.min;
+        maxVal = data.values.max;
 
         var esc = encodeURIComponent;
         var query = Object.keys(params)
           .map(k => esc(k) + '=' + esc(params[k]))
           .join('&');
 
-        var url = "http://localhost:3000/api/tweets1?" + query;
+        var url = "http://localhost:3000/api/tweets/byword?" + query;
 
-        $.ajax({
-          url: url,
-          success: function (result) {
-            console.log(result);
-              window.replace_locations(result.data)
-          },
-        });
+          fetch(url)
+              .then(result => {
+                  result.json().then(d => {
+                      window.replace_locations(d.data)
+                  });
+              });
+
+        //$.ajax({
+        //  url: url,
+        //  success: function (result) {
+        //    console.log(result);
+        //      window.replace_locations(result.data)
+        //  },
+        //});
 
       });
     }
