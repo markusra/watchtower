@@ -71,7 +71,7 @@ export default class Search extends React.Component {
           <input  type="text" style={styles.inputField} placeholder="Type a filter word" onChange={this.handleChange} value={this.state.word}/>
         </div>
         <div style={styles.buttonDiv}>
-          <Button kind="search" style={styles.button} onclick={this.handleSubmitClick}>Show Heatmap</Button>
+          <Button kind="search" style={styles.button} onclick={this.handleSubmitClick}>Filter</Button>
         </div>
       </div>
     );
